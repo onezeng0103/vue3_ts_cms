@@ -1,4 +1,18 @@
 {
+  "compilerOptions": {
+    "composite": true,
+    "noImplicitAny": false,
+    "types": [
+      "element-plus/global",
+      "vite/client",
+      "vue"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
   "files": [],
   "references": [
     {

@@ -1,19 +1,18 @@
-import pluginVue from 'eslint-plugin-vue'
-import vueTsEslintConfig from '@vue/eslint-config-typescript'
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
-
-export default [
-  {
-    name: 'app/files-to-lint',
-    files: ['**/*.{ts,mts,tsx,vue}'],
+module.exports = {
+  root: true,
+  extends: [
+    'plugin:vue/vue3-essential',
+    'eslint:recommended',
+    '@vue/eslint-config-typescript',
+    '@vue/eslint-config-prettier'
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest'
   },
-
-  {
-    name: 'app/files-to-ignore',
-    ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
-  },
-
-  ...pluginVue.configs['flat/essential'],
-  ...vueTsEslintConfig(),
-  skipFormatting,
-]
+  rules: {
+    'vue/multi-word-component-names': 'off',
+    'no-undef': 'off',
+    'no-console': import.meta.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': import.meta.env.NODE_ENV === 'production' ? 'error' : 'off'
+  }
+}
