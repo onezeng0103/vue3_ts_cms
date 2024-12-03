@@ -4,6 +4,6 @@ declare module '*.vue' {
   type IModalConfig = object
   const component: DefineComponent
   export default component
-  
+
   export { IModalConfig }
 }
